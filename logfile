@@ -1,0 +1,35 @@
+2019-11-04 11:46:51.324 CET [21913] LOG:  listening on IPv6 address "::1", port 5432
+2019-11-04 11:46:51.324 CET [21913] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-11-04 11:46:51.325 CET [21913] FATAL:  lock file "/tmp/.s.PGSQL.5432.lock" already exists
+2019-11-04 11:46:51.325 CET [21913] HINT:  Is another postmaster (PID 399) using socket file "/tmp/.s.PGSQL.5432"?
+2019-11-04 11:46:51.325 CET [21913] LOG:  database system is shut down
+2019-11-04 11:59:49.959 CET [22547] LOG:  listening on IPv6 address "::1", port 5432
+2019-11-04 11:59:49.959 CET [22547] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-11-04 11:59:49.959 CET [22547] FATAL:  lock file "/tmp/.s.PGSQL.5432.lock" already exists
+2019-11-04 11:59:49.959 CET [22547] HINT:  Is another postmaster (PID 399) using socket file "/tmp/.s.PGSQL.5432"?
+2019-11-04 11:59:49.959 CET [22547] LOG:  database system is shut down
+2019-11-04 12:00:30.878 CET [22956] LOG:  listening on IPv6 address "::1", port 5432
+2019-11-04 12:00:30.878 CET [22956] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-11-04 12:00:30.879 CET [22956] FATAL:  lock file "/tmp/.s.PGSQL.5432.lock" already exists
+2019-11-04 12:00:30.879 CET [22956] HINT:  Is another postmaster (PID 399) using socket file "/tmp/.s.PGSQL.5432"?
+2019-11-04 12:00:30.879 CET [22956] LOG:  database system is shut down
+2019-11-04 12:13:12.665 CET [23310] LOG:  listening on IPv6 address "::1", port 5432
+2019-11-04 12:13:12.665 CET [23310] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-11-04 12:13:12.665 CET [23310] FATAL:  lock file "/tmp/.s.PGSQL.5432.lock" already exists
+2019-11-04 12:13:12.665 CET [23310] HINT:  Is another postmaster (PID 399) using socket file "/tmp/.s.PGSQL.5432"?
+2019-11-04 12:13:12.665 CET [23310] LOG:  database system is shut down
+2019-11-04 12:13:47.292 CET [23327] LOG:  listening on IPv6 address "::1", port 5432
+2019-11-04 12:13:47.292 CET [23327] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-11-04 12:13:47.293 CET [23327] FATAL:  lock file "/tmp/.s.PGSQL.5432.lock" already exists
+2019-11-04 12:13:47.293 CET [23327] HINT:  Is another postmaster (PID 399) using socket file "/tmp/.s.PGSQL.5432"?
+2019-11-04 12:13:47.293 CET [23327] LOG:  database system is shut down
+2019-11-04 15:10:49.613 CET [24125] LOG:  listening on IPv6 address "::1", port 5432
+2019-11-04 15:10:49.613 CET [24125] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-11-04 15:10:49.613 CET [24125] FATAL:  lock file "/tmp/.s.PGSQL.5432.lock" already exists
+2019-11-04 15:10:49.613 CET [24125] HINT:  Is another postmaster (PID 399) using socket file "/tmp/.s.PGSQL.5432"?
+2019-11-04 15:10:49.613 CET [24125] LOG:  database system is shut down
+2019-11-04 15:21:43.071 CET [24396] LOG:  listening on IPv6 address "::1", port 5432
+2019-11-04 15:21:43.071 CET [24396] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-11-04 15:21:43.071 CET [24396] FATAL:  lock file "/tmp/.s.PGSQL.5432.lock" already exists
+2019-11-04 15:21:43.071 CET [24396] HINT:  Is another postmaster (PID 399) using socket file "/tmp/.s.PGSQL.5432"?
+2019-11-04 15:21:43.071 CET [24396] LOG:  database system is shut down
