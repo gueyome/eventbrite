@@ -12,7 +12,7 @@ Attendance.destroy_all
 User.destroy_all
 Event.destroy_all
 
-100.times do |i|
+20.times do |i|
   email1 = "user" + i.to_s + "@yopmail.com" 
   user = User.create!(email: email1, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Movies::BackToTheFuture.quote, password: "password", password_confirmation: "password")
   event = Event.create!(start_date: Time.now + 120*i, duration: 5000, title: "Evenement " + i.to_s, description: Faker::Movie.quote + Faker::Movie.quote, price: 200, location: Faker::Address.city)
