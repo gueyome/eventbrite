@@ -11,6 +11,12 @@
         <li class="nav-item">
           <a href data-target="#event" data-toggle="tab" class="nav-link">Ses évènements</a>
         </li>
+        <li class="nav-item">
+          <a href data-target="#edit" data-toggle="tab" class="nav-link">Editer mon profil</a>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Modifier mon email/mot de passe", edit_user_registration_path, class: "nav-link" %>
+        </li>
       </ul>
     <div class="tab-content py-4">
       <div class="tab-pane active" id="profile">
