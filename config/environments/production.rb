@@ -94,5 +94,6 @@ Rails.application.configure do
 
   # Emailing Devise
   config.action_mailer.default_url_options = { host: 'https://eventbrite-guillaume.herokuapp.com', port: 3000 }
+  config.action_mailer.perform_deliveries = false
 
 end
