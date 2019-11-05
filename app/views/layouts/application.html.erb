@@ -32,25 +32,28 @@
               <%= link_to "Créer évènement", new_event_path, class: "nav-link" %>
             </li>
             <!-- Si utilisateur connecté -->
+            <% if user_signed_in? %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Mon profil
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Mon profil</a>
-                <a class="dropdown-item" href="#">Se déconnecter</a>
+                <%= link_to "Mon profil", edit_user_registration_path, class: "dropdown-item" %>
+                <%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", method: "DELETE"%>
               </div>
             </li>
             <!-- Si utilisateur non connecté -->
+            <% else %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 S'inscrire / Se connecter
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">S'inscrire</a>
-                <a class="dropdown-item" href="#">Se connecter</a>
+                <%= link_to "S'inscrire", new_user_registration_path, class: "dropdown-item" %>
+                <%= link_to "Se connecter", new_user_session_path, class: "dropdown-item" %>
               </div>
             </li>
+            <% end %>
           </ul>
         </div>
       </nav>
