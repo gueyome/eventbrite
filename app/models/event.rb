@@ -3,6 +3,7 @@ class Event < ApplicationRecord
   has_many :users, through: :attendances
   belongs_to :admin, class_name: "User"
   validates :start_date, presence: true
+  # duration en minutes
   validates :duration, 
     presence: true,
     numericality: { greater_than: 0 }
@@ -27,6 +28,10 @@ class Event < ApplicationRecord
   def duration_multiple_5
     errors.add(:duration, "must be a multiple of 5 greater") if
       duration % 5 != 0
+  end
+
+  def end_date
+    return start_date + duration * 60
   end
 
 end

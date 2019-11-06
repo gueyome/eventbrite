@@ -1,1 +1,34 @@
-<h1> Détails de l'évènement <%= @event.title %> </h1>
+<div class="container">
+  <div class ="row">
+    <div class = "col-md-6 offset-md-3">
+      <br><br><br>
+      
+      <h1 class="h3 mb-3 font-weight-normal text-center">Détails de l'évènement - <%= @event.title%></h1>
+      
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <%= @event.description%>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Nombre d'inscrits
+          <span class="badge badge-primary badge-pill"><%= @event.users.count %></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Créé par <%= @event.admin.email %>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Commence le <%= @event.start_date %>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Termine le <%= @event.end_date %>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Lieu: <%= @event.location %>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Coût: <%= @event.price %>€
+        </li>
+      </ul>
+    
+    </div>
+  </div>
