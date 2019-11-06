@@ -44,7 +44,7 @@
       </div>
       <div class="tab-pane" id="event">
         <ul class="list-group list-group-flush">
-          <% @user.events.each do |event|%>
+          <% @user.events_hosted.each do |event|%>
           <li class="list-group-item"> <%= link_to "#{event.title}", event_path(event.id) %>
           </li>
           <% end %>
