@@ -1,3 +1,9 @@
+<% if flash[:success] == "Paiement réalisé avec succès, vous participez à l'évènement" %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
 <div class="container">
   <div class ="row">
     <div class = "col-md-6 offset-md-3">
@@ -29,6 +35,19 @@
           Coût: <%= @event.price %>€
         </li>
       </ul>
-    
+
+      <% if user_registered?(@event) == false && user_admin?(@event) == false %>
+      <h2 class="h5 mb-3 mt-5 font-weight-normal text-center">Vous souhaitez participer à l'évènement ?</h2>
+      
+        <%= form_for :attendance, url: new_attendance_path, method: "get" do |f| %>
+          <%= f.hidden_field :event_id, value: @event.id %>
+          <div class="text-center">
+          <%= f.submit 'Rejoindre évènement', class: "btn btn-md btn-primary" %>
+          </div>
+        <% end %>
+      
+      <% end %>
+
+
     </div>
   </div>

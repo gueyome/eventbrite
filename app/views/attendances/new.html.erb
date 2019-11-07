@@ -2,9 +2,31 @@
   <div class ="row">
     <div class = "col-md-6 offset-md-3">
       <br><br><br>
-      <h1 class="h3 mb-3 font-weight-normal text-center">Créer son évènement</h1>
+      <h1 class="h3 mb-3 font-weight-normal text-center"> Inscription et règlement de l'évènement </h1>
 
+      <%= form_tag attendances_path do %>
+        <article class="text-center">
+          <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <p><%= flash[:error] %></p>
+            </div>
+          <% end %>
+          <label class="amount">
+            <span>Amount: <%= @price %></span>
+          </label>
+        </article>
 
+        <%= hidden_field_tag 'price', @price %>
+        <%= hidden_field_tag 'event_id', @event_id %>
+        
+        <div class="text-center">
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-description="Inscription à l'évènement"
+                data-amount=<%= @price * 100 %>
+                data-locale="auto"></script>
+        </div>
+      <% end %>
 
 
 
