@@ -1,5 +1,10 @@
 class AttendancesController < ApplicationController
 
+    
+    def index
+      @event = Event.find(params[:event_id])
+    end
+  
     def new
       @attendance = Attendance.new
       @price = Event.find(params[:attendance][:event_id]).price
@@ -7,9 +12,6 @@ class AttendancesController < ApplicationController
     end
 
     def create
-      puts "***************"
-      puts params
-      puts "***************"
 
       puts @amount = params[:price].to_i * 100
       puts @event_id = params[:event_id]
@@ -33,7 +35,7 @@ class AttendancesController < ApplicationController
   
       rescue Stripe::CardError => e
         flash[:error] = e.message
-        redirect_to new_attendance_path
+        redirect_to new_event_attendance_path(@event_id)
 
     end
 

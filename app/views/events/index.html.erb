@@ -1,3 +1,14 @@
+<% if flash[:success] == "Votre évènement a bien été supprimé" %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+<% if flash[:danger] == "Vous n'êtes pas le créateur de cet évènement" %>
+  <div class="alert alert-danger" role="alert">
+    <%= flash[:danger] %>
+  </div>
+<% end %>
+
 <main role="main">
 
   <!-- Main jumbotron for a primary marketing message or call to action -->

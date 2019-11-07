@@ -1,4 +1,4 @@
-<% if flash[:success] == "Paiement réalisé avec succès, vous participez à l'évènement" %>
+<% if flash[:success] == "Paiement réalisé avec succès, vous participez à l'évènement" || flash[:success] == "Votre évènement a été modifié avec succès" || flash[:success] == "Votre évènement a été créé avec succès" %>
   <div class="alert alert-success" role="alert">
     <%= flash[:success] %>
   </div>
@@ -40,13 +40,20 @@
         <% if user_registered?(@event) == false && user_admin?(@event) == false %>
         <h2 class="h5 mb-3 mt-5 font-weight-normal text-center">Vous souhaitez participer à l'évènement ?</h2>
         
-          <%= form_for :attendance, url: new_attendance_path, method: "get" do |f| %>
+          <%= form_for :attendance, url: new_event_attendance_path(@event.id), method: "get" do |f| %>
             <%= f.hidden_field :event_id, value: @event.id %>
             <div class="text-center">
             <%= f.submit 'Rejoindre évènement', class: "btn btn-md btn-primary" %>
             </div>
           <% end %>
         <% end %>
+
+        <% if current_user == @event.admin %>
+          <div class="text-center mt-5">
+          <%= link_to "Mon espace évènement", event_attendances_path(@event.id), class: "btn btn-md btn-primary" %>          
+          </div>
+        <% end %>
+
       <% end %>
 
 

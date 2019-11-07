@@ -1,0 +1,67 @@
+<div class="container">
+  <div class ="row">
+    <div class = "col-md-6 offset-md-3">
+      <br><br><br>
+      <h1 class="h3 mb-3 font-weight-normal text-center">Créer son évènement</h1>
+    
+      <%= form_tag url_for(action: 'update'), method: "put" do %>
+        <div class="form-group">
+          <label>Titre </label>
+          <%= text_field_tag 'title', @event.title, class: "form-control", placeholder: "Rails BootCamp", type: "text" %>
+          <small id="passwordHelpBlock" class="form-text text-muted">
+          Le titre doit faire 5 caractères minimum, 140 maximum
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label>Description </label>
+          <%= text_area_tag 'description', @event.description, class: "form-control", placeholder: "Une formation complète pour appréhender les bases de Ruby on Rails.", type: "text" %>
+          <small id="passwordHelpBlock" class="form-text text-muted">
+          La description doit faire 20 caractères minimum, 1000 maximum
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label>Lieu </label>
+          <%= text_field_tag 'location', @event.location, class: "form-control", placeholder: "Paris", type: "text" %>
+        </div>
+
+        <div class="form-group">
+          <label>Date de l'évènement </label>
+          <%= date_field_tag 'start_date', @event.start_date, class: "form-control", placeholder: "DD/MM/YYYY", type: "date" %>
+          <small id="passwordHelpBlock" class="form-text text-muted">
+          La date de l'évènement au format ci-dessus 
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label>Durée de l'évènement </label>
+          <%= text_field_tag 'duration', @event.duration, class: "form-control", placeholder: "60", type: "number" %>
+          <small id="passwordHelpBlock" class="form-text text-muted">
+          La durée est en minutes et doit être un multiple de 5 
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label>Prix de l'évènement </label>
+          <%= text_field_tag 'price', @event.price, class: "form-control", placeholder: "20", type: "number" %>
+          <small id="passwordHelpBlock" class="form-text text-muted">
+          Le prix en euros 
+          </small>
+        </div>
+
+        <div class="actions mt-3 mb-5">
+          <%= submit_tag "Modifier évènement", class: "btn btn-lg btn-primary btn-block" %>
+        </div>
+        
+      <% end %>
+
+      <h2 class="h5 mb-3 mt-5 font-weight-normal text-center">Vous souhaitez supprimer cet évènement ?</h2>
+      <div class="  text-center">
+      <%= link_to "Supprimer évènement", event_path(@event.id), class: "btn btn-md btn-danger mb-5", method: "delete" %>
+      </div>
+
+
+    </div>
+  </div>
+</div>
