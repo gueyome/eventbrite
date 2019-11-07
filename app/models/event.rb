@@ -2,6 +2,7 @@ class Event < ApplicationRecord
   has_many :attendances
   has_many :users, through: :attendances
   belongs_to :admin, class_name: "User"
+  has_one_attached :event_picture
   validates :start_date, presence: true
   # duration en minutes
   validates :duration, 
