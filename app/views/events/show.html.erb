@@ -4,6 +4,12 @@
   </div>
 <% end %>
 
+<% if flash[:danger] == "Vous n'êtes pas le créateur de cet évènement" %>
+  <div class="alert alert-danger" role="alert">
+    <%= flash[:danger] %>
+  </div>
+<% end %>
+
 <div class="container">
   <div class ="row">
     <div class = "col-md-6 offset-md-3">
@@ -11,15 +17,17 @@
       
       <h1 class="h3 mb-3 font-weight-normal text-center">Détails de l'évènement - <%= @event.title%></h1>
         <div class="text-center mb-5">
-        <%if @event.event_picture.attached?%>
-          <%= image_tag @event.event_picture, alt: 'event_picture', align: 'middle', width: 570, height: 400 %>
-        <%else%>
-          <p>=== Il n'y a pas encore d'image lié à cet évènement ===</p>
-        <%end%>
-        <h3 class="mt-5 h5 font-weight-normal">Changer d'avatar ?</h3>
-        <%= form_tag event_event_pictures_path(@event), multipart: true do %>
-          <%= file_field_tag :event_picture %>
-          <%= submit_tag "mettre à jour" %>
+        <% if user_admin?(@event) == true %>
+          <%if @event.event_picture.attached?%>
+            <%= image_tag @event.event_picture, alt: 'event_picture', align: 'middle', width: 570, height: 400 %>
+          <%else%>
+            <p>=== Il n'y a pas encore d'image lié à cet évènement ===</p>
+          <%end%>
+          <h3 class="mt-5 h5 font-weight-normal">Changer l'image de couverture ?</h3>
+          <%= form_tag event_event_pictures_path(@event), multipart: true do %>
+            <%= file_field_tag :event_picture %>
+            <%= submit_tag "Mettre à jour" %>
+          <% end %>
         <% end %>
         </div>  
       
