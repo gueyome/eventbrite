@@ -8,7 +8,11 @@ module EventsHelper
   end
 
   def user_admin?(event)
-    event.admin_id == current_user.id
+    if current_user != nil
+      event.admin_id == current_user.id
+    else 
+      return false
+    end
   end
 
 end

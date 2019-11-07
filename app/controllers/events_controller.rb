@@ -45,7 +45,12 @@ class EventsController < ApplicationController
   private
 
   def user_admin?
-    unless Event.find(params[:id]).admin_id == current_user.id
+    if current_user != nil
+      unless Event.find(params[:id]).admin_id == current_user.id
+        flash[:danger] = "Vous n'êtes pas le créateur de cet évènement"
+        redirect_to root_path
+      end
+    else 
       flash[:danger] = "Vous n'êtes pas le créateur de cet évènement"
       redirect_to root_path
     end
