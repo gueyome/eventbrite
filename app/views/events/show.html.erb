@@ -36,16 +36,17 @@
         </li>
       </ul>
 
-      <% if user_registered?(@event) == false && user_admin?(@event) == false %>
-      <h2 class="h5 mb-3 mt-5 font-weight-normal text-center">Vous souhaitez participer à l'évènement ?</h2>
-      
-        <%= form_for :attendance, url: new_attendance_path, method: "get" do |f| %>
-          <%= f.hidden_field :event_id, value: @event.id %>
-          <div class="text-center">
-          <%= f.submit 'Rejoindre évènement', class: "btn btn-md btn-primary" %>
-          </div>
+      <% if user_signed_in? %>
+        <% if user_registered?(@event) == false && user_admin?(@event) == false %>
+        <h2 class="h5 mb-3 mt-5 font-weight-normal text-center">Vous souhaitez participer à l'évènement ?</h2>
+        
+          <%= form_for :attendance, url: new_attendance_path, method: "get" do |f| %>
+            <%= f.hidden_field :event_id, value: @event.id %>
+            <div class="text-center">
+            <%= f.submit 'Rejoindre évènement', class: "btn btn-md btn-primary" %>
+            </div>
+          <% end %>
         <% end %>
-      
       <% end %>
 
 
