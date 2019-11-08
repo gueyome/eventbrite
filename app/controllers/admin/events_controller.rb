@@ -6,7 +6,7 @@ class Admin::EventsController < ApplicationController
   # GET /admin/events
   # GET /admin/events.json
   def index
-    @admin_events = Admin::Event.all
+    @admin_events = Event.all
   end
 
   # GET /admin/events/1
@@ -16,7 +16,7 @@ class Admin::EventsController < ApplicationController
 
   # GET /admin/events/new
   def new
-    @admin_event = Admin::Event.new
+    @admin_event = Event.new
   end
 
   # GET /admin/events/1/edit
@@ -26,7 +26,7 @@ class Admin::EventsController < ApplicationController
   # POST /admin/events
   # POST /admin/events.json
   def create
-    @admin_event = Admin::Event.new(admin_event_params)
+    @admin_event = Event.new(admin_event_params)
 
     respond_to do |format|
       if @admin_event.save
@@ -66,7 +66,7 @@ class Admin::EventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_event
-      @admin_event = Admin::Event.find(params[:id])
+      @admin_event = Event.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
