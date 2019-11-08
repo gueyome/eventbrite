@@ -8,5 +8,9 @@ Rails.application.routes.draw do
   resources :users
   #resources :charges
   root 'events#index'
+  namespace :admin do
+    root 'events#index'
+    resources :events, :users
+  end
 end
 
