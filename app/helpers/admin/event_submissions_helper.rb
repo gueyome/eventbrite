@@ -1,0 +1,2 @@
+module Admin::EventSubmissionsHelper
+end

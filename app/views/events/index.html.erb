@@ -3,7 +3,7 @@
     <%= flash[:success] %>
   </div>
 <% end %>
-<% if flash[:danger] == "Vous n'êtes pas le créateur de cet évènement" %>
+<% if flash[:danger] == "Vous n'êtes pas le créateur de cet évènement" || flash[:danger] == "Cet évènement n'est pas encore validé" %>
   <div class="alert alert-danger" role="alert">
     <%= flash[:danger] %>
   </div>

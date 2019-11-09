@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-    <title>Dashboard Eventbrite - Utilisateurs </title>
+    <title>Dashboard Eventbrite - Evénements en cours de validation</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
 
@@ -30,7 +30,6 @@
                   <span data-feather="home"></span>
                   Evénements <span class="sr-only">(current)</span>
                 <% end %>
-              </li>
               </li>
               <%= link_to admin_event_submissions_path, class: "nav-link active" do %>
                   <span data-feather="home"></span>
@@ -61,27 +60,20 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 
-          <h2>Les utilisateurs</h2>
+          <h2>Evènements en cours de validation</h2>
           <div class="table-responsive">
             <table class="table table-striped table-sm">
               <thead>
                 <tr>
                   <th>Titre</th>
-                  <th>Voir</th>
                   <th>Editer</th>
-                  <th>Supprimer</th>
-                  <th>Admin?</th>
                 </tr>
               </thead>
               <tbody>
-                <% @admin_users.each do |admin_user| %>
+                <% @admin_event_submissions.each do |admin_event_submission| %>
                 <tr>
-                  <td><%= admin_user.first_name %></td>
-                  <td><%= link_to 'Show', admin_user %></td>
-                  <td><%= link_to 'Edit', edit_admin_user_path(admin_user) %></td>
-                  <td><%= link_to 'Destroy', admin_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                  <td><%= admin_user.is_admin %></td>
-
+                  <td><%= admin_event_submission.title %></td>
+                  <td><%= link_to 'Edit', edit_admin_event_path(admin_event_submission) %></td>
                 </tr>
                 <% end %>
               </tbody>

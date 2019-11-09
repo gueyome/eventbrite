@@ -21,6 +21,7 @@ class Admin::EventsController < ApplicationController
 
   # GET /admin/events/1/edit
   def edit
+    @admin_event = Event.find(params[:id])
   end
 
   # POST /admin/events
@@ -34,15 +35,12 @@ class Admin::EventsController < ApplicationController
   # PATCH/PUT /admin/events/1
   # PATCH/PUT /admin/events/1.json
   def update
-    respond_to do |format|
-      if @admin_event.update(admin_event_params)
-        format.html { redirect_to @admin_event, notice: 'Event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @admin_event }
-      else
-        format.html { render :edit }
-        format.json { render json: @admin_event.errors, status: :unprocessable_entity }
-      end
-    end
+    puts a = params[:id]
+    @admin_event = Event.find(a)
+    @admin_event.update(start_date: params[:start_date], duration: params[:duration], title: params[:title], description: params[:description], price: params[:price], location: params[:location], validated: params[:validated])
+    
+    flash[:success] = "Votre évènement a été modifié avec succès"
+    redirect_to event_path(@admin_event.id)
   end
 
   # DELETE /admin/events/1

@@ -1,9 +1,10 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   before_action :user_admin?, only: [:edit, :destroy, :update]
+  before_action :event_validated?, only: [:show]
   
   def index
-    @events = Event.all.reorder('id')
+    @events = Event.where(validated: true).reorder('id')
   end
 
   def new
@@ -52,6 +53,18 @@ class EventsController < ApplicationController
       end
     else 
       flash[:danger] = "Vous n'êtes pas le créateur de cet évènement"
+      redirect_to root_path
+    end
+  end
+
+  def event_validated?
+    if Event.find(params[:id]).validated != nil
+      unless Event.find(params[:id]).validated == true
+        flash[:danger] = "Cet évènement n'est pas encore validé"
+        redirect_to root_path
+      end
+    else
+      flash[:danger] = "Cet évènement n'est pas encore validé"
       redirect_to root_path
     end
   end
