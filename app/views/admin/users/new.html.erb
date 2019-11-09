@@ -1,5 +1,58 @@
-<h1>New Admin User</h1>
+<div class="container">
+  <div class ="row">
+    <div class = "col-md-6 offset-md-3">
+      <br><br><br>
+      <h1 class="h3 mb-3 font-weight-normal text-center">Créer un utilisateur (admin)</h1>
+    
+      <%= form_tag url_for(action: 'create'), method: "post" do %>
+        <div class="form-group">
+          <label>Prénom </label>
+          <%= text_field_tag 'first_name', @admin_user.first_name, class: "form-control", placeholder: "Jean", type: "text" %>
+        </div>
 
-<%= render 'form', admin_user: @admin_user %>
+        <div class="form-group">
+          <label>Nom </label>
+          <%= text_field_tag 'last_name', @admin_user.last_name, class: "form-control", placeholder: "Lafont", type: "text" %>
+        </div>
 
-<%= link_to 'Back', admin_users_path %>
+         <div class="form-group">
+          <label>Email </label>
+          <%= text_field_tag 'email', @admin_user.email, class: "form-control", placeholder: "Lafont", type: "text" %>
+        </div>
+
+        <div class="form-group">
+          <label>Description </label>
+          <%= text_area_tag 'description', @admin_user.description, class: "form-control", placeholder: "Je suis entrepreneur et aime le football...", type: "text" %>
+        </div>
+
+        <div class="form-group"> 
+          <%= hidden_field_tag :is_admin, 'false' %>
+          <%= check_box_tag :is_admin %>
+          <%= label_tag(:is_admin, "Admin") %>
+        </div>
+
+        <div class="form-group">
+          <label>Mot de passe </label>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= text_field_tag 'password', @admin_user.password, class: "form-control", type: "text", autocomplete: "new-password" %>
+        </div>
+
+        <div class="form-group">
+          <label>Confirmation du mot de passe </label>
+          <%= text_field_tag 'password_confirmation', @admin_user.password_confirmation, class: "form-control", type: "text", autocomplete: "new-password" %>
+        </div>
+
+        <div class="actions mt-3 mb-5">
+          <%= submit_tag "Créer utilisateur", class: "btn btn-lg btn-primary btn-block" %>
+          <div class="text-center mt-3">
+          <%= link_to 'Back', admin_users_path %>
+          </div>
+        </div>
+        
+      <% end %>
+
+    </div>
+  </div>
+</div>

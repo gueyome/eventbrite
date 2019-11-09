@@ -26,17 +26,9 @@ class Admin::EventsController < ApplicationController
   # POST /admin/events
   # POST /admin/events.json
   def create
-    @admin_event = Event.new(admin_event_params)
-
-    respond_to do |format|
-      if @admin_event.save
-        format.html { redirect_to @admin_event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @admin_event }
-      else
-        format.html { render :new }
-        format.json { render json: @admin_event.errors, status: :unprocessable_entity }
-      end
-    end
+    @admin_event = Event.create!(start_date: params[:start_date], duration: params[:duration], title: params[:title], description: params[:description], price: params[:price], location: params[:location], admin_id: current_user.id)
+    flash[:success] = "Votre évènement a été créé avec succès"
+    redirect_to event_path(@admin_event.id)
   end
 
   # PATCH/PUT /admin/events/1

@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   end
 
   def good_user_connected
-    unless current_user == User.find(params[:id])
+    unless current_user == User.find(params[:id]) || current_user.is_admin == true
       flash[:danger] = "Vous n'avez pas accès à cette page de profil"
       redirect_to events_path
     end

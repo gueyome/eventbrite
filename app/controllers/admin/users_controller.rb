@@ -16,7 +16,7 @@ class Admin::UsersController < ApplicationController
 
   # GET /admin/users/new
   def new
-    @admin_user = Admin::User.new
+    @admin_user = User.new
   end
 
   # GET /admin/users/1/edit
@@ -26,7 +26,10 @@ class Admin::UsersController < ApplicationController
   # POST /admin/users
   # POST /admin/users.json
   def create
-    @admin_user = User.new(admin_user_params)
+    puts "******"
+    puts params
+    puts "******"
+    @admin_user = User.create!(email: params["email"], first_name: params["first_name"], last_name: params["last_name"], description: params["description"], password: params["password"], password_confirmation: params["password_confirmation"], is_admin: params["is_admin"])
 
     respond_to do |format|
       if @admin_user.save

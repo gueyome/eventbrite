@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     root 'events#index'
     resources :events, :users
   end
+  resources :event_submissions, only: [:index]
 end
 

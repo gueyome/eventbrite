@@ -43,6 +43,12 @@
                   Créer un évènement
                 <% end %>
               </li>
+              <li class="nav-item">
+                <%= link_to new_admin_user_path, class: "nav-link active" do %>
+                  <span data-feather="file"></span>
+                  Créer un utilisateur
+                <% end %>
+              </li>
             </ul>
 
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -91,6 +97,7 @@
                   <th>Voir</th>
                   <th>Editer</th>
                   <th>Supprimer</th>
+                  <th>Admin?</th>
                 </tr>
               </thead>
               <tbody>
@@ -100,6 +107,8 @@
                   <td><%= link_to 'Show', admin_user %></td>
                   <td><%= link_to 'Edit', edit_admin_user_path(admin_user) %></td>
                   <td><%= link_to 'Destroy', admin_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <td><%= admin_user.is_admin %></td>
+
                 </tr>
                 <% end %>
               </tbody>
@@ -156,31 +165,3 @@
     </script>
   </body>
 </html>
-
-<!--
-
-<p id="notice"><%= notice %></p>
-
-<h1>Admin Users</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @admin_users.each do |admin_user| %>
-      <tr>
-        <td><%= link_to 'Show', admin_user %></td>
-        <td><%= link_to 'Edit', edit_admin_user_path(admin_user) %></td>
-        <td><%= link_to 'Destroy', admin_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Admin User', new_admin_user_path %>
