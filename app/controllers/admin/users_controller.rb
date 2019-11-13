@@ -26,9 +26,6 @@ class Admin::UsersController < ApplicationController
   # POST /admin/users
   # POST /admin/users.json
   def create
-    puts "******"
-    puts params
-    puts "******"
     @admin_user = User.create!(email: params["email"], first_name: params["first_name"], last_name: params["last_name"], description: params["description"], password: params["password"], password_confirmation: params["password_confirmation"], is_admin: params["is_admin"])
 
     respond_to do |format|
@@ -79,7 +76,7 @@ class Admin::UsersController < ApplicationController
 
     def check_if_admin
       if current_user.is_admin == false
-      flash[:danger] = "Vous n'êtes pas authorisé à accéder à cet espace"
+      flash[:error] = "Vous n'êtes pas authorisé à accéder à cet espace"
       redirect_to root_path
       end
     end

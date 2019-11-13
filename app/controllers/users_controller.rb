@@ -25,14 +25,14 @@ class UsersController < ApplicationController
 
   def authenticate_user
     unless current_user
-      flash[:danger] = "Merci de vous connecter"
+      flash[:notice] = "Merci de vous connecter"
       redirect_to new_user_session_path
     end
   end
 
   def good_user_connected
     unless current_user == User.find(params[:id]) || current_user.is_admin == true
-      flash[:danger] = "Vous n'avez pas accès à cette page de profil"
+      flash[:error] = "Vous n'avez pas accès à cette page de profil"
       redirect_to events_path
     end
   end

@@ -11,7 +11,7 @@ class EventPicturesController < ApplicationController
 
   def user_admin?
     unless Event.find(params[:event_id]).admin_id == current_user.id
-      flash[:danger] = "Vous n'êtes pas le créateur de cet évènement"
+      flash[:error] = "Vous n'êtes pas le créateur de cet évènement"
       redirect_to event_path(params[:event_id])
     end
   end

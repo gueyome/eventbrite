@@ -31,7 +31,7 @@ class Admin::EventSubmissionsController < ApplicationController
 
     def check_if_admin
       if current_user.is_admin == false
-      flash[:danger] = "Vous n'êtes pas authorisé à accéder à cet espace"
+      flash[:error] = "Vous n'êtes pas authorisé à accéder à cet espace"
       redirect_to root_path
       end
     end

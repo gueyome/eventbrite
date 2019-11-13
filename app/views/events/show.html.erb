@@ -1,15 +1,3 @@
-<% if flash[:success] == "Paiement réalisé avec succès, vous participez à l'évènement" || flash[:success] == "Votre évènement a été modifié avec succès" || flash[:success] == "Votre évènement a été créé avec succès" %>
-  <div class="alert alert-success" role="alert">
-    <%= flash[:success] %>
-  </div>
-<% end %>
-
-<% if flash[:danger] == "Vous n'êtes pas le créateur de cet évènement" %>
-  <div class="alert alert-danger" role="alert">
-    <%= flash[:danger] %>
-  </div>
-<% end %>
-
 <div class="container">
   <div class ="row">
     <div class = "col-md-6 offset-md-3">
