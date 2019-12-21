@@ -76,7 +76,7 @@ class Admin::UsersController < ApplicationController
 
     def check_if_admin
       if current_user.is_admin == false
-      flash[:error] = "Vous n'êtes pas authorisé à accéder à cet espace"
+      flash[:error] = "You are not authorized to access this space"
       redirect_to root_path
       end
     end

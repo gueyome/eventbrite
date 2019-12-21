@@ -28,7 +28,7 @@ class Admin::EventsController < ApplicationController
   # POST /admin/events.json
   def create
     @admin_event = Event.create!(start_date: params[:start_date], duration: params[:duration], title: params[:title], description: params[:description], price: params[:price], location: params[:location], admin_id: current_user.id)
-    flash[:success] = "Votre évènement a été créé avec succès"
+    flash[:success] = "Your event has been successfully created"
     redirect_to event_path(@admin_event.id)
   end
 
@@ -39,7 +39,7 @@ class Admin::EventsController < ApplicationController
     @admin_event = Event.find(a)
     @admin_event.update(start_date: params[:start_date], duration: params[:duration], title: params[:title], description: params[:description], price: params[:price], location: params[:location], validated: params[:validated])
     
-    flash[:success] = "Votre évènement a été modifié avec succès"
+    flash[:success] = "Your event has been successfully modified"
     redirect_to event_path(@admin_event.id)
   end
 
@@ -66,7 +66,7 @@ class Admin::EventsController < ApplicationController
 
     def check_if_admin
       if current_user.is_admin == false
-      flash[:error] = "Vous n'êtes pas authorisé à accéder à cet espace"
+      flash[:error] = "You are not authorized to access this space"
       redirect_to root_path
       end
     end

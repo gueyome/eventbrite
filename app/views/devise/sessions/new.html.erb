@@ -4,6 +4,7 @@
       <br><br><br>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-signin mt-3") do |f| %>
+        <%= devise_error_messages! %>
         <h1 class="h3 mb-3 font-weight-normal text-center">Sign in</h1>
         <div class="form-group">
           <%= f.label :email %><br />
@@ -22,13 +23,12 @@
           </div>
         <% end %>
 
-        <div class="actions mt-5">
+        <div class="actions mt-5 text-center">
           <%= f.submit "Log in", class: "btn btn-lg btn-primary btn-block" %>
+          <br>
+          <%= render "devise/shared/links" %>
         </div>
       <% end %>
-      <div class="text-center">
-      <%= render "devise/shared/links" %>
-      </div>
     </div>
   </div>
 </div>

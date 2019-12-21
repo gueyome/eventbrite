@@ -4,21 +4,19 @@
       <br><br><br>
 
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }, class: "form-signin mt-3") do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
+        <%= devise_error_messages! %>
         <h1 class="h3 mb-3 font-weight-normal text-center">Forgot your password?</h1>
         <div class="form-group">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
         </div>
 
-        <div class="actions mt-3">
+        <div class="actions mt-3 text-center">
           <%= f.submit "Send me reset password instructions", class: "btn btn-lg btn-primary btn-block mb-3" %>
+          <br>
+          <%= render "devise/shared/links" %>
         </div>
       <% end %>
-      
-      <div class = "text-center">
-      <%= render "devise/shared/links" %>
-      </div>
 
     </div>
   </div>

@@ -1,33 +1,33 @@
 <div class="container">
   <div class="text-center mt-3">
-  <h1>Profil de <%= @user.first_name %></h1>
+  <h1><%= @user.first_name %> profile</h1>
   </div>
   <div class="row my-2">
-    <div class="col-lg-8 order-lg-2">
+    <div class="col-lg-12 order-lg-2">
       <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a href data-target="#profile" data-toggle="tab" class="nav-link active">Profil</a>
+          <a href data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
         </li>
         <li class="nav-item">
-          <a href data-target="#event" data-toggle="tab" class="nav-link">Ses évènements</a>
+          <a href data-target="#event" data-toggle="tab" class="nav-link">Events I host</a>
         </li>
         <li class="nav-item">
-          <a href data-target="#edit" data-toggle="tab" class="nav-link">Editer mon profil</a>
+          <%= link_to "Edit my profile", edit_user_path(@user.id), class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Modifier mon email/mot de passe", edit_user_registration_path, class: "nav-link" %>
+          <%= link_to "Modify my email/password", edit_user_registration_path, class: "nav-link" %>
         </li>
       </ul>
     <div class="tab-content py-4">
       <div class="tab-pane active" id="profile">
-        <h5 class="mb-3">Profil de l'utilisateur</h5>
+        <h5 class="mb-3">User profile</h5>
         <div class="row">
           <div class="col-md-6">
-            <h6>Prénom</h6>
+            <h6>First name</h6>
             <p>
               <%= @user.first_name %>
             </p>
-            <h6>Nom de famille </h6>
+            <h6>Last name </h6>
             <p>
               <%= @user.last_name %>
             </p>
@@ -42,10 +42,15 @@
           </div>
         </div>
       </div>
-      <div class="tab-pane" id="event">
+      <div class="tab-pane col-lg-6" id="event">
+        <h5 class="mb-3">My events</h5>
         <ul class="list-group list-group-flush">
           <% @user.events_hosted.each do |event|%>
-          <li class="list-group-item"> <%= link_to "#{event.title}", event_path(event.id) %>
+          <li class="list-group-item"> 
+          <div class="row">
+          <%= link_to "#{event.title}", event_path(event.id), class: "col align-self-start"%>
+          <%= link_to 'Edit', edit_event_path(event.id), class: "btn-sml btn-primary col-2 align-self-center" %>
+          </div>
           </li>
           <% end %>
         </ul>

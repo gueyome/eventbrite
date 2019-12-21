@@ -1,25 +1,25 @@
 <div class="container">
   <div class="text-center">
-    <h1>Les derniers évènements </h1>
+    <h1>Last validated events </h1>
   <div>
     <!-- Example row of columns -->
   <% total_row = (@events.size / 3).round(1) %>
   <% for row in (0..total_row) do%>
     <div class="row mt-5">
       <div class="col-md-4">
-        <h2><%= @events[row*3].title %></h2>
+        <h3><%= @events[row*3].title %></h3>
         <p><%= @events[row*3].description %></p>
         <p><%= link_to "Voir les détails", event_path(@events[row*3].id), class: "btn btn-secondary", role: "button" %></p>
         <% break if row*3 == @events.size - 1 %>
       </div>
       <div class="col-md-4">
-        <h2><%= @events[row*3+1].title %></h2>
+        <h3><%= @events[row*3+1].title %></h3>
         <p><%= @events[row*3+1].description %></p>
         <p><%= link_to "Voir les détails", event_path(@events[row*3 +   1].id), class: "btn btn-secondary", role: "button" %></p>
         <% break if row*3+1 == @events.size - 1 %>
       </div>
       <div class="col-md-4">
-        <h2><%= @events[row*3+2].title %></h2>
+        <h3><%= @events[row*3+2].title %></h3>
         <p><%= @events[row*3+2].description %></p>
         <p><%= link_to "Voir les détails", event_path(@events[row*3+2].id), class: "btn btn-secondary", role: "button" %></p>
         <% break if row*3+2 == @events.size - 1 %>

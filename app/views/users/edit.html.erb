@@ -1,0 +1,31 @@
+<div class="container">
+  <div class ="row">
+    <div class = "col-md-6 offset-md-3">
+      <br><br><br>
+      <h1 class="h3 mb-3 font-weight-normal text-center">Modify my profile</h1>
+    
+      <%= form_tag url_for(action: 'update'), method: "patch" do %>
+        <div class="form-group">
+          <label>Prénom </label>
+          <%= text_field_tag 'first_name', @user.first_name, class: "form-control", placeholder: "Jean", type: "text" %>
+        </div>
+
+        <div class="form-group">
+          <label>Nom </label>
+          <%= text_field_tag 'last_name', @user.last_name, class: "form-control", placeholder: "Lafont", type: "text" %>
+        </div>
+
+        <div class="form-group">
+          <label>Description </label>
+          <%= text_area_tag 'description', @user.description, class: "form-control", placeholder: "I am an entrepreneur and love football ...", type: "text" %>
+        </div>
+
+        <div class="actions mt-3 mb-5">
+          <%= submit_tag "Modify my information", class: "btn btn-lg btn-primary btn-block" %>
+        </div>
+        
+      <% end %>
+
+    </div>
+  </div>
+</div>

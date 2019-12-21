@@ -1,0 +1,70 @@
+<div class="container">
+  <div class ="row">
+    <div class = "col-md-6 offset-md-3">
+      <br><br><br>
+      
+      <h1 class="h3 mb-3 font-weight-normal text-center">Event details - <%= @event.title%></h1>
+        <div class="text-center mb-5">
+        <% if user_admin?(@event) == true %>
+          <%if @event.event_picture.attached?%>
+            <%= image_tag @event.event_picture, alt: 'event_picture', align: 'middle', width: 570, height: 400 %>
+          <%else%>
+            <p>=== There is no image yet for this event ===</p>
+          <%end%>
+          <h3 class="mt-5 h5 font-weight-normal">Change the cover image?</h3>
+          <%= form_tag event_event_pictures_path(@event), multipart: true do %>
+            <%= file_field_tag :event_picture %>
+            <%= submit_tag "Mettre à jour" %>
+          <% end %>
+        <% end %>
+        </div>  
+      
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <%= @event.description%>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Number of registrants
+          <span class="badge badge-primary badge-pill"><%= @event.users.count %></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Created by <%= @event.admin.email %>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Starts on <%= @event.start_date %>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Ends on <%= @event.end_date %>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Location: <%= @event.location %>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Cost: <%= @event.price %>€
+        </li>
+      </ul>
+
+      <% if user_signed_in? %>
+        <% if user_registered?(@event) == false && user_admin?(@event) == false %>
+        <h2 class="h5 mb-3 mt-5 font-weight-normal text-center">Do you want to participate in the event?</h2>
+        
+          <%= form_for :attendance, url: new_event_attendance_path(@event.id), method: "get" do |f| %>
+            <%= f.hidden_field :event_id, value: @event.id %>
+            <div class="text-center">
+            <%= f.submit 'Join event', class: "btn btn-md btn-primary" %>
+            </div>
+          <% end %>
+        <% end %>
+
+        <% if current_user == @event.admin %>
+          <div class="text-center mt-5">
+          <%= link_to "My event space", event_attendances_path(@event.id), class: "btn btn-md btn-primary" %>          
+          </div>
+        <% end %>
+
+      <% end %>
+
+
+    </div>
+  </div>
+  

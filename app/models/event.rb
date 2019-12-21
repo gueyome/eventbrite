@@ -27,8 +27,10 @@ class Event < ApplicationRecord
   end
 
   def duration_multiple_5
-    errors.add(:duration, "must be a multiple of 5 greater") if
-      duration % 5 != 0
+    if duration != nil
+      errors.add(:duration, "must be a multiple of 5 greater") if duration % 5 != 0
+    else errors.add(:duration, "can't be blank")
+    end
   end
 
   def end_date

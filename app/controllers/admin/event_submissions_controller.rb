@@ -12,7 +12,7 @@ class Admin::EventSubmissionsController < ApplicationController
     @admin_event = Event.find(a)
     @admin_event.update(start_date: params[:start_date], duration: params[:duration], title: params[:title], description: params[:description], price: params[:price], location: params[:location], validated: params[:validated])
     
-    flash[:success] = "Votre évènement a été modifié avec succès"
+    flash[:success] = "Your event has been successfully modified"
     redirect_to event_path(@event.id)
   end
 
@@ -31,7 +31,7 @@ class Admin::EventSubmissionsController < ApplicationController
 
     def check_if_admin
       if current_user.is_admin == false
-      flash[:error] = "Vous n'êtes pas authorisé à accéder à cet espace"
+      flash[:error] = "You are not authorized to access this space"
       redirect_to root_path
       end
     end

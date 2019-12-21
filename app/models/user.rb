@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :attendances
   has_many :events, through: :attendances
   validates :email, uniqueness: true
-  after_create :welcome_send
+  # after_create :welcome_send
   has_many :events_hosted, foreign_key: "admin_id", class_name: "Event", dependent: :destroy
   
   def welcome_send

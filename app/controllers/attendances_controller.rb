@@ -30,7 +30,7 @@ class AttendancesController < ApplicationController
 
       @attendance = Attendance.new(user_id: current_user.id, event_id: params[:event_id], stripe_customer_id: customer.id)
       @attendance.save
-      flash[:success] = "Paiement réalisé avec succès, vous participez à l'évènement"
+      flash[:success] = "Payment successfully completed, you participate in the event"
       redirect_to event_path(@event_id)
   
       rescue Stripe::CardError => e

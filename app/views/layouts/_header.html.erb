@@ -11,28 +11,28 @@
           <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Créer évènement", new_event_path, class: "nav-link" %>
+          <%= link_to "Create event", new_event_path, class: "nav-link" %>
         </li>
         <!-- Si utilisateur connecté -->
         <% if user_signed_in? %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Mon profil
+            My profile
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "Mon profil", user_path(current_user.id), class: "dropdown-item" %>
-            <%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", method: "DELETE"%>
+            <%= link_to "My profile", user_path(current_user.id), class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", method: "DELETE"%>
           </div>
         </li>
         <!-- Si utilisateur non connecté -->
         <% else %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            S'inscrire / Se connecter
+            Sign up / Sign in
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "S'inscrire", new_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Se connecter", new_user_session_path, class: "dropdown-item" %>
+            <%= link_to "Sign up", new_user_registration_path, class: "dropdown-item" %>
+            <%= link_to "Sign in", new_user_session_path, class: "dropdown-item" %>
           </div>
         </li>
         <% end %>

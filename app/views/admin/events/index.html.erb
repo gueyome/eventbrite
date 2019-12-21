@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-    <title>Dashboard Eventbrite - Evénements </title>
+    <title>Dashboard Eventbrite - Events </title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
 
@@ -28,31 +28,31 @@
               <li class="nav-item">
                 <%= link_to admin_events_path, class: "nav-link active" do %>
                   <span data-feather="home"></span>
-                  Evénements <span class="sr-only">(current)</span>
+                  Events <span class="sr-only">(current)</span>
                 <% end %>
               </li>
               </li>
               <%= link_to admin_event_submissions_path, class: "nav-link active" do %>
                   <span data-feather="home"></span>
-                  Evénements en cours de validation
+                  Events under validation
                 <% end %>
               </li>
               <li class="nav-item">
                 <%= link_to admin_users_path, class: "nav-link active" do %>
                   <span data-feather="file"></span>
-                  Utilisateurs
+                  Users
                 <% end %>
               </li>
               <li class="nav-item">
                 <%= link_to new_admin_event_path, class: "nav-link active" do %>
                   <span data-feather="file"></span>
-                  Créer un évènement
+                  Create event
                 <% end %>
               </li>
               <li class="nav-item">
                 <%= link_to new_admin_user_path, class: "nav-link active" do %>
                   <span data-feather="file"></span>
-                  Créer un utilisateur
+                  Create user
                 <% end %>
               </li>
             </ul>
@@ -61,15 +61,15 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 
-          <h2>Les évènements</h2>
+          <h2>The events</h2>
           <div class="table-responsive">
             <table class="table table-striped table-sm">
               <thead>
                 <tr>
-                  <th>Titre</th>
-                  <th>Voir</th>
+                  <th>Title</th>
+                  <th>Show</th>
                   <th>Editer</th>
-                  <th>Supprimer</th>
+                  <th>Delete</th>
                 </tr>
               </thead>
               <tbody>
@@ -78,7 +78,7 @@
                   <td><%= admin_event.title %></td>
                   <td><%= link_to 'Show', admin_event %></td>
                   <td><%= link_to 'Edit', edit_admin_event_path(admin_event) %></td>
-                  <td><%= link_to 'Destroy', admin_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <td><%= link_to 'Destroy', admin_event, method: :delete, data: { confirm: 'Are you sure you want to delete this event?' } %></td>
                 </tr>
                 <% end %>
               </tbody>
