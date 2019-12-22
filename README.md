@@ -6,4 +6,5 @@ You have full admin access if you log in with those credentials and go on https:
 - email: admin@yopmail.com
 - password: password
 
-
+To make a payment and register to an event:
+card number: 4242 4242 4242 4242 expiration date: any future date cvc: any 3 digits
