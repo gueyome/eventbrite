@@ -70,6 +70,7 @@
                   <th>Show</th>
                   <th>Editer</th>
                   <th>Delete</th>
+                  <th>Validated</th>
                 </tr>
               </thead>
               <tbody>
@@ -79,6 +80,7 @@
                   <td><%= link_to 'Show', admin_event %></td>
                   <td><%= link_to 'Edit', edit_admin_event_path(admin_event) %></td>
                   <td><%= link_to 'Destroy', admin_event, method: :delete, data: { confirm: 'Are you sure you want to delete this event?' } %></td>
+                  <td> <%= admin_event.validated %></td>
                 </tr>
                 <% end %>
               </tbody>

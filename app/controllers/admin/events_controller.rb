@@ -37,10 +37,15 @@ class Admin::EventsController < ApplicationController
   def update
     puts a = params[:id]
     @admin_event = Event.find(a)
-    @admin_event.update(start_date: params[:start_date], duration: params[:duration], title: params[:title], description: params[:description], price: params[:price], location: params[:location], validated: params[:validated])
-    
-    flash[:success] = "Your event has been successfully modified"
-    redirect_to event_path(@admin_event.id)
+    puts "#####################"
+    puts params
+    if @admin_event.update(start_date: params[:start_date], duration: params[:duration], title: params[:title], description: params[:description], price: params[:price], location: params[:location], validated: params[:validated])
+      flash[:success] = "Your event has been successfully modified"
+      redirect_to admin_root_path
+    else
+      flash[:error] = @admin_event.errors.full_messages.first
+      render :edit
+    end
   end
 
   # DELETE /admin/events/1

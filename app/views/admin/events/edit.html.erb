@@ -4,7 +4,7 @@
       <br><br><br>
       <h1 class="h3 mb-3 font-weight-normal text-center">Modify event (Admin)</h1>
     
-      <%= form_tag event_path(@admin_event.id), method: "patch" do %>
+      <%= form_tag admin_event_path(@admin_event.id), method: "patch" do %>
         <div class="form-group">
           <label>Title </label>
           <%= text_field_tag 'title', @admin_event.title, class: "form-control", placeholder: "Rails BootCamp", type: "text" %>
